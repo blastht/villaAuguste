@@ -1,0 +1,409 @@
+/* Style général pour la gestion du carrousel */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+}
+
+header {
+  background: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+nav {
+  background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+nav a:hover {
+  color: #FFB800;
+  transform: scale(1.1);
+}
+
+nav a:active {
+  color: #FF4500;
+}
+
+@media screen and (max-width: 768px) {
+  nav {
+      flex-direction: column;
+      padding: 15px;
+  }
+
+  nav a {
+      margin: 10px 0;
+  }
+}
+
+
+/* #accueil img {
+  width: 60%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+@media screen and (min-width: 1024px) {
+  #accueil img {
+    max-width: 40%; Réduit encore l'image pour les grands écrans
+  }
+} */
+
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%; /* Permet une meilleure adaptation à la taille de l'écran */
+  max-width: 1200px; /* Largeur plus grande sur PC */
+  margin: 20px auto; /* Centre l'image avec un léger espace autour */
+  aspect-ratio: 16/9; /* Ratio parfait pour un affichage harmonieux */
+  overflow: hidden; /* Évite les débordements */
+  border-radius: 15px; /* Coins plus arrondis pour un effet élégant */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Ombre plus marquée */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Effet au survol */
+}
+
+/* Ajoute un léger zoom au survol */
+.image-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Rendre l'image responsive */
+.image-container amp-img {
+  width: 100%;       /* L'image occupe 100% de la largeur de son conteneur */
+  height: auto;      /* La hauteur est ajustée automatiquement pour garder les proportions */
+  object-fit: cover; /* Couvre l'espace sans déformer l'image (utilisé si l'image est redimensionnée) */
+}
+
+/* Adaptation pour les écrans de petite taille (mobile) */
+@media (max-width: 767px) {
+  .image-container amp-img {
+    width: 100%;     /* L'image occupe toute la largeur de l'écran */
+    height: auto;    /* Maintient la proportion de l'image */
+  }
+}
+
+/* Adaptation pour les écrans moyens à grands (tablettes et PC) */
+@media (min-width: 768px) and (max-width: 1399px) {
+  .image-container amp-img {
+    width: 100%;     /* L'image occupe toute la largeur de l'écran */
+    height: auto;    /* Maintient la proportion de l'image */
+  }
+}
+
+/* Adaptation pour les écrans très larges (PC) */
+@media (min-width: 1400px) {
+  .image-container {
+    max-width: 1400px; /* Limite la largeur maximale à 1400px pour les très grands écrans */
+    margin: 0 auto;    /* Centre l'image horizontalement */
+  }
+
+  .image-container amp-img {
+    width: 100%;       /* L'image occupe toute la largeur de son conteneur */
+    height: auto;      /* Maintient la proportion de l'image */
+  }
+}
+
+section {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Styles pour la section chambres et le carrousel */
+.chambre {
+  margin: 30px auto;
+  max-width: 750px;
+  background: #fefefe;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.chambre h3 {
+  font-size: 1.8rem;
+  color: #fff;
+  background: linear-gradient(45deg, #ff7f50, #ff6347);
+  padding: 10px;
+  text-align: center;
+  margin: 0;
+}
+
+.chambre amp-carousel {
+  border-bottom: 1px solid #ddd;
+}
+
+.chambre-details {
+  padding: 15px;
+}
+
+.chambre-details .prix {
+  font-size: 1.2rem;
+  color: #ff4500;
+  margin-bottom: 10px;
+}
+
+.chambre-details .description {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+.chambre-details .description em {
+  font-style: italic;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .chambre {
+    max-width: 90%;
+  }
+
+  .chambre h3 {
+    font-size: 1.5rem;
+  }
+
+  .chambre-details .description {
+    font-size: 0.95rem;
+  }
+}
+
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 8px;
+  background-color: #e0e0e0;
+}
+
+.carousel .slides {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+.carousel .slide {
+  width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel .slide img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.navigation {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.navigation button {
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 1.5rem;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  pointer-events: auto;
+  border: none;
+  transition: background 0.3s ease;
+}
+
+.navigation button:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+button.toggle-description {
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.toggle-description:hover {
+  background-color: #003f7f;
+}
+
+.description {
+  display: none;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.description p {
+  line-height: 1.6;
+    letter-spacing: 0.5px;
+}
+
+#localisation iframe {
+  width: 90%; /* Limite la largeur de l'iframe à 90% de l'écran */
+  max-width: 800px; /* Fixe une largeur maximale */
+  height: 400px; /* Hauteur adaptée pour les grands écrans */
+  margin: 0 auto; /* Centre l'iframe */
+  display: block; /* Centre correctement */
+  border-radius: 8px; /* Arrondit les bords pour un meilleur design */
+}
+
+@media screen and (min-width: 1024px) {
+  #localisation iframe {
+    width: 70%; /* Réduit encore la taille pour PC */
+    height: 350px;
+  }
+}
+
+.map-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* S'adapte à la largeur du conteneur */
+  max-width: 800px; /* Largeur maximale */
+  margin: 0 auto; /* Centre horizontalement */
+  aspect-ratio: 16/9; /* Maintient un ratio pour éviter les déformations */
+  overflow: hidden; /* Cache tout débordement */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none; /* Supprime la bordure par défaut de l'iframe */
+}
+
+/* Section "Avis Clientèle" */
+#avis {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+#avis h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Conteneur des avis */
+.avis-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Espacement entre les avis */
+}
+
+/* Style individuel pour chaque avis */
+.avis {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.avis:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* En-tête de l'avis */
+.avis-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.avis-header strong {
+  color: #0056b3;
+}
+
+.avis-header span {
+  color: #FFD700; /* Couleur des étoiles */
+  font-size: 1.2rem;
+}
+
+/* Texte de l'avis */
+.avis-text {
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Footer */
+footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  .chambre {
+      margin: 20px auto;
+  }
+
+  .carousel .slide img {
+      max-height: 300px;
+  }
+
+  .navigation button {
+      font-size: 1.5rem;
+      height: 40px;
+      width: 40px;
+  }
+}
